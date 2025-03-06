@@ -1,4 +1,5 @@
-dagNu = new Date().getDate();
+const setup = () => {
+  dagNu = new Date().getDate();
 uurNu = new Date().getHours();
 minNu = new Date().getMinutes();
 secNu = new Date().getSeconds();
@@ -53,8 +54,7 @@ else{
   if(dag == 1){
     document.getElementById("dagMv").innerHTML = "dag";
   }
-
-
+}
 
 setInterval(per_sec, 1000)
 }
@@ -107,3 +107,5 @@ function per_sec() {
     }
 
 }
+
+window.addEventListener("load", setup);
