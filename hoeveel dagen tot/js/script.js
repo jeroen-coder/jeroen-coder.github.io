@@ -5,7 +5,7 @@ minNu = new Date().getMinutes();
 secNu = new Date().getSeconds();
 
 dagEinde = 8;
-uurEinde = 10;
+uurEinde = 9;
 minEinde = 55;
 secEinde = 0;
 
