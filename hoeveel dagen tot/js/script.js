@@ -4,9 +4,9 @@ uurNu = new Date().getHours();
 minNu = new Date().getMinutes();
 secNu = new Date().getSeconds();
 
-dagEinde = 8;
-uurEinde = 9;
-minEinde = 55;
+dagEinde = 20;
+uurEinde = 15;
+minEinde = 0;
 secEinde = 0;
 
 dag = 0;
