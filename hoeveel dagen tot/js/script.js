@@ -1,111 +1,53 @@
+let global =  {
+  NU: new Date(Date.now()),
+  EINDE: new Date("2025/04/10 10:00")
+}
+
 const setup = () => {
-  dagNu = new Date().getDate();
-uurNu = new Date().getHours();
-minNu = new Date().getMinutes();
-secNu = new Date().getSeconds();
 
-dagEinde = 10;
-uurEinde = 10;
-minEinde = 0;
-secEinde = 0;
-
-dag = 0;
-uur = 0;
-min = 0;
-sec = 0;
-
-if(dagNu > dagEinde || dagNu == dagEinde  && uurNu >= uurEinde && minNu >= minEinde && secNu >= secEinde){
-  document.getElementById("hoelang").innerHTML = "have fun";
-}
-else{
-
-  if(secEinde <secNu){
-    sec = (secEinde+60)-secNu;
-    minEinde-= 1;
-  }
-  else{
-    sec = secEinde-secNu;
-  }
-  if(minEinde < minNu){
-    min = (minEinde+60)-minNu;
-    uurEinde -= 1
-  }
-  else{
-    min = minEinde-minNu;
-  }
-  if (uurEinde < uurNu){
-    uur = uurEinde + 24 - uurNu;
-    dagEinde -= 1
-  }
-  else{
-    uur = uurEinde - uurNu;
-  }
-  dag = dagEinde - dagNu
-
-  if(sec == 0){
-    document.getElementById("secMv").innerHTML = "seconde";
-  }
-  if(min == 1){
-    document.getElementById("minMv").innerHTML = "minuut";
-  }
-  if(uur == 1){
-    document.getElementById("uurMv").innerHTML = "uur";
-  }
-  if(dag == 1){
-    document.getElementById("dagMv").innerHTML = "dag";
-  }
+  setInterval(bereken_tijd, 1000);
 }
 
-setInterval(per_sec, 1000)
+let bereken_tijd = () => {
+  sec();
+  let tijd_tussen = global.EINDE - global.NU;
+  let dagen = Math.floor(tijd_tussen/1000/60/60/24);
+  let dagen_elem = create_elem(dagen, 'dag', 'dagen');
+  tijd_tussen -= dagen*1000*60*60*24;
+  let uren = Math.floor(tijd_tussen / 1000/60/60);
+  let uren_elem = create_elem(uren, 'uur', 'uren')
+  tijd_tussen -= uren*1000*60*60;
+  let minuten = Math.floor(tijd_tussen / 1000/60);
+  let minuten_elem = create_elem(minuten, 'minuut', 'minuten');
+  tijd_tussen -= minuten*1000*60;
+  let secondes = Math.floor(tijd_tussen / 1000);
+  let secondes_elem = create_elem(secondes, 'seconde', 'secondes');
+
+  let hoelang = document.getElementById("hoelang");
+  hoelang.innerHTML = "Nog: ";
+  hoelang.appendChild(dagen_elem);
+  hoelang.innerHTML += " ";
+  hoelang.appendChild(uren_elem);
+  hoelang.innerHTML += "<br>";
+  hoelang.appendChild(minuten_elem);
+  hoelang.innerHTML += " ";
+  hoelang.appendChild(secondes_elem);
 }
 
-function per_sec() {
-  document.getElementById("sec").innerHTML = sec;
-  document.getElementById("min").innerHTML = min;
-  document.getElementById("uur").innerHTML = uur;
-  document.getElementById("dagen").innerHTML = dag;
+let create_elem = (tijd, enkelvoud, meervoud) => {
+  let dagen_elem = document.createElement('span');
+  dagen_elem.innerHTML = tijd;
+  if(tijd === 1){
+    dagen_elem.innerHTML += " " + enkelvoud;
+  }
+  else{
+    dagen_elem.innerHTML += " " + meervoud;
+  }
+  return dagen_elem;
+}
 
-    sec--;
-    if(sec == -1){
-      sec = 59;
-      min--;
-      if(min == -1){
-        min = 59;
-        uur--;
-        if(uur == -1){
-          uur == 23;
-          dag--;
-          if(dag == -1){
-            document.getElementById("hoelang").innerHTML = "have fun";
-          }
-          else if(dag == 1){
-            document.getElementById("dagMv").innerHTML = "dag";
-          }
-          else{
-            document.getElementById("dagMv").innerHTML = "dagen";
-          }
-        }
-        else if(uur == 1){
-          document.getElementById("uurMv").innerHTML = "uur";
-        }
-        else{
-          document.getElementById("uurMv").innerHTML = "uren";
-        }
-      }
-      else if(min == 1){
-        document.getElementById("minMv").innerHTML = "minuut";
-      }
-      else{
-        document.getElementById("minMv").innerHTML = "minuten";
-      }
-    }
-    else if(sec == 0){
-      document.getElementById("secMv").innerHTML = "seconde";
-    }
-    else{
-      document.getElementById("secMv").innerHTML = "secondes";
-    }
-
+let sec = () =>{
+  global.NU = global.NU - 0 + 1000;
 }
 
 window.addEventListener("load", setup);
