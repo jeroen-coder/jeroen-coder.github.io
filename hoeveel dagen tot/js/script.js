@@ -15,7 +15,7 @@ min = 0;
 sec = 0;
 
 if(dagNu > dagEinde || dagNu == dagEinde  && uurNu >= uurEinde && minNu >= minEinde && secNu >= secEinde){
-  document.getElementById("hoelang").innerHTML = "It arrived";
+  document.getElementById("hoelang").innerHTML = "have fun";
 }
 else{
 
@@ -76,7 +76,7 @@ function per_sec() {
           uur == 23;
           dag--;
           if(dag == -1){
-            document.getElementById("hoelang").innerHTML = "It arrived";
+            document.getElementById("hoelang").innerHTML = "have fun";
           }
           else if(dag == 1){
             document.getElementById("dagMv").innerHTML = "dag";
