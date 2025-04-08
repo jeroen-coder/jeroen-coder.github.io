@@ -1,6 +1,6 @@
 let global =  {
   NU: new Date(Date.now()),
-  EINDE: new Date("2025/04/10 10:00")
+  EINDE: new Date("2025/04/10 09:44")
 }
 
 const setup = () => {
