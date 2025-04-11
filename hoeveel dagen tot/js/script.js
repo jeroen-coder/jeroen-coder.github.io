@@ -11,6 +11,7 @@ const setup = () => {
 let bereken_tijd = () => {
   sec();
   let tijd_tussen = global.EINDE - global.NU;
+  if(tijd_tussen > 0){
   let dagen = Math.floor(tijd_tussen/1000/60/60/24);
   let dagen_elem = create_elem(dagen, 'dag', 'dagen');
   tijd_tussen -= dagen*1000*60*60*24;
@@ -32,6 +33,11 @@ let bereken_tijd = () => {
   hoelang.appendChild(minuten_elem);
   hoelang.innerHTML += " ";
   hoelang.appendChild(secondes_elem);
+  }
+  else{
+    let hoelang = document.getElementById("hoelang");
+    hoelang.innerHTML = "<img src="images/download.jpg" alt="een foto">";
+  }
 }
 
 let create_elem = (tijd, enkelvoud, meervoud) => {
