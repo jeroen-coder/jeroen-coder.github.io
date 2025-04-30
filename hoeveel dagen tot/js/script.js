@@ -1,6 +1,6 @@
 let global =  {
   NU: new Date(Date.now()),
-  EINDE: new Date("2025/04/15 13:00")
+  EINDE: new Date("2025/05/03 10:00")
 }
 
 const setup = () => {
@@ -36,7 +36,7 @@ let bereken_tijd = () => {
   }
   else{
     let hoelang = document.getElementById("hoelang");
-    hoelang.innerHTML = '<img src="https://ih1.redbubble.net/image.4979858686.9354/flat,750x,075,f-pad,750x1000,f8f8f8.jpg" alt="een foto">';
+    hoelang.innerHTML='I missed you';
   }
 }
 
