@@ -36,7 +36,7 @@ let bereken_tijd = () => {
   }
   else{
     let hoelang = document.getElementById("hoelang");
-    hoelang.innerHTML'A halve year that\'s crazy! (i love you)';
+    hoelang.innerHTML = 'A halve year that\'s crazy! (i love you)';
   }
 }
 
