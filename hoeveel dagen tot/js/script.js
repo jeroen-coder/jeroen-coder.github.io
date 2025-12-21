@@ -1,6 +1,6 @@
 let global =  {
   NU: new Date(Date.now()),
-  EINDE: new Date("2025-11-11T10:00:00")
+  EINDE: new Date("2025-12-25T15:00:00")
 }
 
 const setup = () => {
@@ -36,7 +36,7 @@ let bereken_tijd = () => {
   }
   else{
     let hoelang = document.getElementById("hoelang");
-    hoelang.innerHTML ='yay i get to see you again! <3';
+    hoelang.innerHTML ="yay it's cristmas! <3";
   }
 }
 
